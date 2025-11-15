@@ -1,0 +1,107 @@
+{
+  "patrimoines": [
+    {
+      "id": "1",
+      "nom": "Amphithéâtre d'El Jem",
+      "photo": "https://upload.wikimedia.org/wikipedia/commons/7/73/Amphitheatre_El_Jem_Tunisia_2008.jpg",
+      "adresse": "El Jem, Tunisie",
+      "ouvert": true,
+      "dateCreation": "238-01-01",
+      "prixEntree": 5,
+      "commentaires": [
+        { "id": "c1", "utilisateurId": "u2", "message": "Super site à visiter!", "date": "2025-11-15" },
+        { "id": "c2", "utilisateurId": "u3", "message": "Très impressionnant!", "date": "2025-11-10" }
+      ],
+      "description": "Un amphithéâtre romain impressionnant et bien conservé.",
+      "categorie": "Archéologique"
+    },
+    {
+      "id": "2",
+      "nom": "Dougga",
+      "photo": "https://upload.wikimedia.org/wikipedia/commons/1/10/Dougga_tunisia.jpg",
+      "adresse": "Dougga, Tunisie",
+      "ouvert": true,
+      "dateCreation": "27-01-01",
+      "prixEntree": 7,
+      "commentaires": [
+        { "id": "c3", "utilisateurId": "u2", "message": "Très bien conservé!", "date": "2025-10-20" }
+      ],
+      "description": "Site archéologique romain et punique, classé au patrimoine mondial de l'UNESCO.",
+      "categorie": "Archéologique"
+    },
+    {
+      "id": "3",
+      "nom": "Carthage",
+      "photo": "https://upload.wikimedia.org/wikipedia/commons/4/4e/Carthage_Roman_Ruins.jpg",
+      "adresse": "Carthage, Tunisie",
+      "ouvert": true,
+      "dateCreation": "-814-01-01",
+      "prixEntree": 6,
+      "commentaires": [
+        { "id": "c4", "utilisateurId": "u3", "message": "Une visite incontournable!", "date": "2025-11-05" }
+      ],
+      "description": "Ancienne cité phénicienne et romaine, célèbre pour son histoire et ses ruines.",
+      "categorie": "Archéologique"
+    },
+    {
+      "id": "4",
+      "nom": "Bulla Regia",
+      "photo": "https://upload.wikimedia.org/wikipedia/commons/3/3c/Bulla_Regia_Tunisia.jpg",
+      "adresse": "Jendouba, Tunisie",
+      "ouvert": false,
+      "dateCreation": "200-01-01",
+      "prixEntree": 4,
+      "commentaires": [
+        { "id": "c5", "utilisateurId": "u2", "message": "Très intéressant, sous-sol unique!", "date": "2025-11-12" }
+      ],
+      "description": "Site romain célèbre pour ses maisons souterraines bien conservées.",
+      "categorie": "Archéologique"
+    }
+  ],
+
+  "utilisateurs": [
+    {
+      "id": "u1",
+      "nom": "Ali",
+      "email": "ali@example.com",
+      "motDePasse": "123456",
+      "role": "admin",
+      "favoris": ["1", "2"]
+    },
+    {
+      "id": "u2",
+      "nom": "Sara",
+      "email": "sara@example.com",
+      "motDePasse": "abcdef",
+      "role": "user",
+      "favoris": ["1", "4"]
+    },
+    {
+      "id": "u3",
+      "nom": "Karim",
+      "email": "karim@example.com",
+      "motDePasse": "qwerty",
+      "role": "user",
+      "favoris": ["3"]
+    }
+  ],
+
+  "reservations": [
+    {
+      "id": "r1",
+      "patrimoineId": "1",
+      "utilisateurId": "u2",
+      "dateReservation": "2025-11-20",
+      "nombrePersonnes": 3,
+      "prixTotal": 15
+    },
+    {
+      "id": "r2",
+      "patrimoineId": "2",
+      "utilisateurId": "u3",
+      "dateReservation": "2025-12-05",
+      "nombrePersonnes": 2,
+      "prixTotal": 14
+    }
+  ]
+}
