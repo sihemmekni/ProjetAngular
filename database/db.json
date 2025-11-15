@@ -1,107 +1,131 @@
 {
-  "patrimoines": [
+  "sitesArcheologiques": [
     {
       "id": "1",
       "nom": "Amphithéâtre d'El Jem",
-      "photo": "https://upload.wikimedia.org/wikipedia/commons/7/73/Amphitheatre_El_Jem_Tunisia_2008.jpg",
-      "adresse": "El Jem, Tunisie",
-      "ouvert": true,
-      "dateCreation": "238-01-01",
-      "prixEntree": 5,
-      "commentaires": [
-        { "id": "c1", "utilisateurId": "u2", "message": "Super site à visiter!", "date": "2025-11-15" },
-        { "id": "c2", "utilisateurId": "u3", "message": "Très impressionnant!", "date": "2025-11-10" }
-      ],
+      "localisation": "El Jem, Tunisie",
       "description": "Un amphithéâtre romain impressionnant et bien conservé.",
-      "categorie": "Archéologique"
+      "dateDecouverte": "0238-01-01",
+      "possedeMusee": true,
+      "prixEntree": 5,
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/7/73/Amphitheatre_El_Jem_Tunisia_2008.jpg"
     },
     {
       "id": "2",
       "nom": "Dougga",
-      "photo": "https://upload.wikimedia.org/wikipedia/commons/1/10/Dougga_tunisia.jpg",
-      "adresse": "Dougga, Tunisie",
-      "ouvert": true,
-      "dateCreation": "27-01-01",
-      "prixEntree": 7,
-      "commentaires": [
-        { "id": "c3", "utilisateurId": "u2", "message": "Très bien conservé!", "date": "2025-10-20" }
-      ],
+      "localisation": "Dougga, Tunisie",
       "description": "Site archéologique romain et punique, classé au patrimoine mondial de l'UNESCO.",
-      "categorie": "Archéologique"
+      "dateDecouverte": "0027-01-01",
+      "possedeMusee": true,
+      "prixEntree": 7,
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/1/10/Dougga_tunisia.jpg"
     },
     {
       "id": "3",
       "nom": "Carthage",
-      "photo": "https://upload.wikimedia.org/wikipedia/commons/4/4e/Carthage_Roman_Ruins.jpg",
-      "adresse": "Carthage, Tunisie",
-      "ouvert": true,
-      "dateCreation": "-814-01-01",
-      "prixEntree": 6,
-      "commentaires": [
-        { "id": "c4", "utilisateurId": "u3", "message": "Une visite incontournable!", "date": "2025-11-05" }
-      ],
+      "localisation": "Carthage, Tunisie",
       "description": "Ancienne cité phénicienne et romaine, célèbre pour son histoire et ses ruines.",
-      "categorie": "Archéologique"
+      "dateDecouverte": "-0814-01-01",
+      "possedeMusee": false,
+      "prixEntree": 6,
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/4/4e/Carthage_Roman_Ruins.jpg"
     },
     {
       "id": "4",
       "nom": "Bulla Regia",
-      "photo": "https://upload.wikimedia.org/wikipedia/commons/3/3c/Bulla_Regia_Tunisia.jpg",
-      "adresse": "Jendouba, Tunisie",
-      "ouvert": false,
-      "dateCreation": "200-01-01",
-      "prixEntree": 4,
-      "commentaires": [
-        { "id": "c5", "utilisateurId": "u2", "message": "Très intéressant, sous-sol unique!", "date": "2025-11-12" }
-      ],
+      "localisation": "Jendouba, Tunisie",
       "description": "Site romain célèbre pour ses maisons souterraines bien conservées.",
-      "categorie": "Archéologique"
+      "dateDecouverte": "0200-01-01",
+      "possedeMusee": false,
+      "prixEntree": 4,
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3c/Bulla_Regia_Tunisia.jpg"
     }
   ],
 
   "utilisateurs": [
     {
       "id": "u1",
-      "nom": "Ali",
+      "username": "Ali",
       "email": "ali@example.com",
-      "motDePasse": "123456",
-      "role": "admin",
-      "favoris": ["1", "2"]
+      "password": "123456",
+      "role": "ADMIN"
     },
     {
       "id": "u2",
-      "nom": "Sara",
+      "username": "Sara",
       "email": "sara@example.com",
-      "motDePasse": "abcdef",
-      "role": "user",
-      "favoris": ["1", "4"]
+      "password": "abcdef",
+      "role": "USER"
     },
     {
       "id": "u3",
-      "nom": "Karim",
+      "username": "Karim",
       "email": "karim@example.com",
-      "motDePasse": "qwerty",
-      "role": "user",
-      "favoris": ["3"]
+      "password": "qwerty",
+      "role": "USER"
     }
+  ],
+
+  "commentaires": [
+    {
+      "id": "c1",
+      "utilisateurId": "u2",
+      "siteId": "1",
+      "contenu": "Super site à visiter!",
+      "dateCreation": "2025-11-15"
+    },
+    {
+      "id": "c2",
+      "utilisateurId": "u3",
+      "siteId": "1",
+      "contenu": "Très impressionnant!",
+      "dateCreation": "2025-11-10"
+    },
+    {
+      "id": "c3",
+      "utilisateurId": "u2",
+      "siteId": "2",
+      "contenu": "Très bien conservé!",
+      "dateCreation": "2025-10-20"
+    },
+    {
+      "id": "c4",
+      "utilisateurId": "u3",
+      "siteId": "3",
+      "contenu": "Une visite incontournable!",
+      "dateCreation": "2025-11-05"
+    },
+    {
+      "id": "c5",
+      "utilisateurId": "u2",
+      "siteId": "4",
+      "contenu": "Très intéressant, sous-sol unique!",
+      "dateCreation": "2025-11-12"
+    }
+  ],
+
+  "favoris": [
+    { "id": "f1", "utilisateurId": "u1", "siteId": "1" },
+    { "id": "f2", "utilisateurId": "u1", "siteId": "2" },
+    { "id": "f3", "utilisateurId": "u2", "siteId": "1" },
+    { "id": "f4", "utilisateurId": "u2", "siteId": "4" },
+    { "id": "f5", "utilisateurId": "u3", "siteId": "3" }
   ],
 
   "reservations": [
     {
       "id": "r1",
-      "patrimoineId": "1",
       "utilisateurId": "u2",
-      "dateReservation": "2025-11-20",
-      "nombrePersonnes": 3,
-      "prixTotal": 15
+      "siteId": "1",
+      "dateVisite": "2025-11-20",
+      "nombreBillets": 3
     },
     {
       "id": "r2",
-      "patrimoineId": "2",
       "utilisateurId": "u3",
-      "dateReservation": "2025-12-05",
-      "nombrePersonnes": 2,
-      "prixTotal": 14
+      "siteId": "2",
+      "dateVisite": "2025-12-05",
+      "nombreBillets": 2
     }
   ]
 }
