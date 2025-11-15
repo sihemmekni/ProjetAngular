@@ -1,3 +1,5 @@
+import { Favori } from './favori';
+
 export interface Utilisateur {
     
   id: string;
@@ -5,5 +7,6 @@ export interface Utilisateur {
   email: string;
   password: string;
   role: "ADMIN" | "USER"; 
+  favoris: Favori[];
 }
 

@@ -1,5 +1,4 @@
 import { Commentaire } from './commentaire';
-import { Favori } from './favori';
 export interface SiteArcheologique {
 
   id: string;
@@ -11,6 +10,6 @@ export interface SiteArcheologique {
   prixEntree: number;
   imageUrl: string;
   commentaires: Commentaire[];
-  favoris: Favori[];
+  
 }
 
