@@ -9,6 +9,7 @@ export interface SiteArcheologique {
   possedeMusee: boolean;
   prixEntree: number;
   imageUrl: string;
+  excerpt?: string;
   commentaires: Commentaire[];
   
 }

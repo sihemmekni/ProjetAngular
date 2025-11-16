@@ -1,1 +1,27 @@
-<p>patrimoine-detail works!</p>
+@for (p of patrimoine ? [patrimoine] : []; track $index) {
+  @if (p) {
+    <div class="container mt-5">
+      <div class="card mb-4 shadow-sm">
+        <img [src]="p.imageUrl" class="card-img-top" alt="{{ p.nom }}">
+        <div class="card-body">
+          <h2>{{ p.nom }}</h2>
+          <p><strong>Localisation:</strong> {{ p.localisation }}</p>
+          <p>{{ p.description }}</p>
+          <p><strong>Date de découverte:</strong> {{ p.dateDecouverte | date }}</p>
+          <p><strong>Possède musée:</strong> {{ p.possedeMusee ? 'Oui' : 'Non' }}</p>
+          <p><strong>Prix entrée:</strong> {{ p.prixEntree }} DT</p>
+           
+
+
+          <a [routerLink]="'/'" class="btn btn-secondary btn-sm">Retour à l'accueil</a>
+        </div>
+      </div>
+    </div>
+  }
+}
+
+@if (!patrimoine) {
+  <div class="container mt-5">
+    <p>Chargement des informations...</p>
+  </div>
+}
