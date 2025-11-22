@@ -1,0 +1,58 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container">
+    <a class="navbar-brand" routerLink="/">MonSite</a>
+    <div class="collapse navbar-collapse">
+      <ul class="navbar-nav ms-auto">
+
+        <!-- Liens front-office visibles toujours -->
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/patrimoine">Patrimoine</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/search">Recherche</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/contact">Contact</a>
+        </li>
+
+        <!-- Favoris et Mes Réservations visibles toujours -->
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/favoris">Favoris</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/reservation">Mes Réservations</a>
+        </li>
+
+        <!-- Liens pour ADMIN uniquement -->
+        @if(auth.isLogged() && auth.getUser()?.role === 'ADMIN') {
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/admin/patrimoine">Dashboard</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/admin/patrimoine/add">Ajouter Patrimoine</a>
+          </li>
+        }
+
+        <!-- Connexion / Inscription si non connecté -->
+        @if(!auth.isLogged()) {
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/login">Connexion</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/register">S'inscrire</a>
+          </li>
+        }
+      </ul>
+
+      <!-- Nom utilisateur + déconnexion -->
+      @if(auth.isLogged()) {
+        <span class="navbar-text ms-3">
+          Bonjour, {{ auth.getUser()?.username }}
+        </span>
+        <button class="btn btn-outline-danger btn-sm ms-2" (click)="logout()">
+          Déconnexion
+        </button>
+      }
+    </div>
+  </div>
+</nav>

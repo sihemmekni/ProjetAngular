@@ -10,13 +10,44 @@
           <p><strong>Date de découverte:</strong> {{ p.dateDecouverte | date }}</p>
           <p><strong>Possède musée:</strong> {{ p.possedeMusee ? 'Oui' : 'Non' }}</p>
           <p><strong>Prix entrée:</strong> {{ p.prixEntree }} DT</p>
-           
-
-
           <a [routerLink]="'/'" class="btn btn-secondary btn-sm">Retour à l'accueil</a>
         </div>
       </div>
     </div>
+
+    <!-- FAVORIS -->
+    <div class="text-center mb-3">
+      <i 
+        class="bi"
+        [class.bi-heart-fill]="isFavori"
+        [class.bi-heart]="!isFavori"
+        [style.color]="isFavori ? 'red' : 'black'"
+        style="cursor: pointer; font-size: 2rem;"
+        (click)="toggleFavori()"
+      ></i>
+    </div>
+
+    <!-- RÉSERVATION -->
+    <div class="card mt-4 p-3">
+      <h5>Réserver une visite</h5>
+      <form [formGroup]="reservationForm" (ngSubmit)="reserver()">
+        <label>Date de visite:</label>
+        <input type="date" class="form-control" formControlName="dateVisite">
+        <label class="mt-2">Nombre de billets:</label>
+        <input type="number" class="form-control" min="1" formControlName="nombreBillets">
+        <button type="submit" class="btn btn-success mt-3">Réserver</button>
+      </form>
+    </div>
+
+    <!-- COMMENTAIRES -->
+    <h4>Ajouter un commentaire</h4>
+    <form [formGroup]="commentForm" (ngSubmit)="addComment()">
+      <div class="mb-3">
+        <label>Votre commentaire</label>
+        <textarea class="form-control" formControlName="contenu"></textarea>
+      </div>
+      <button class="btn btn-primary" type="submit">Envoyer</button>
+    </form>
   }
 }
 

@@ -8,21 +8,7 @@
       "dateDecouverte": "0238-01-01",
       "possedeMusee": true,
       "prixEntree": 5,
-      "imageUrl": "img1.jpg",
-      "commentaires": [
-        {
-          "id": "c1",
-          "utilisateurId": "u2",
-          "contenu": "Super site à visiter!",
-          "dateCreation": "2025-11-15"
-        },
-        {
-          "id": "c2",
-          "utilisateurId": "u3",
-          "contenu": "Très impressionnant!",
-          "dateCreation": "2025-11-10"
-        }
-      ]
+      "imageUrl": "img1.jpg"
     },
     {
       "id": "2",
@@ -32,15 +18,7 @@
       "dateDecouverte": "0027-01-01",
       "possedeMusee": true,
       "prixEntree": 7,
-      "imageUrl": "img2.jpg",
-      "commentaires": [
-        {
-          "id": "c3",
-          "utilisateurId": "u2",
-          "contenu": "Très bien conservé!",
-          "dateCreation": "2025-10-20"
-        }
-      ]
+      "imageUrl": "img2.jpg"
     },
     {
       "id": "3",
@@ -50,15 +28,7 @@
       "dateDecouverte": "-0814-01-01",
       "possedeMusee": false,
       "prixEntree": 6,
-      "imageUrl": "img3.JPG",
-      "commentaires": [
-        {
-          "id": "c4",
-          "utilisateurId": "u3",
-          "contenu": "Une visite incontournable!",
-          "dateCreation": "2025-11-05"
-        }
-      ]
+      "imageUrl": "img3.JPG"
     },
     {
       "id": "4",
@@ -68,18 +38,9 @@
       "dateDecouverte": "0200-01-01",
       "possedeMusee": false,
       "prixEntree": 4,
-      "imageUrl": "img4.jpg",
-      "commentaires": [
-        {
-          "id": "c5",
-          "utilisateurId": "u2",
-          "contenu": "Très intéressant, sous-sol unique!",
-          "dateCreation": "2025-11-12"
-        }
-      ]
+      "imageUrl": "img4.jpg"
     }
   ],
-
   "utilisateurs": [
     {
       "id": "u1",
@@ -101,17 +62,88 @@
       "email": "karim@example.com",
       "password": "qwerty",
       "role": "USER"
+    },
+    {
+      "id": "8ad7",
+      "username": "sihem",
+      "email": "sihemmekni73@gmail.com",
+      "password": "1234"
+    },
+    {
+      "id": "4982",
+      "username": "SIHEM",
+      "email": "sihemmekni73@gmail.com",
+      "password": "123",
+      "role": "USER"
     }
   ],
-
-  "favoris": [
-    { "id": "f1", "utilisateurId": "u1", "siteId": "1" },
-    { "id": "f2", "utilisateurId": "u1", "siteId": "2" },
-    { "id": "f3", "utilisateurId": "u2", "siteId": "1" },
-    { "id": "f4", "utilisateurId": "u2", "siteId": "4" },
-    { "id": "f5", "utilisateurId": "u3", "siteId": "3" }
+  "commentaires": [
+    {
+      "id": "c1",
+      "utilisateurId": "u2",
+      "siteId": "1",
+      "contenu": "Super site à visiter!",
+      "dateCreation": "2025-11-15"
+    },
+    {
+      "id": "c2",
+      "utilisateurId": "u3",
+      "siteId": "1",
+      "contenu": "Très impressionnant!",
+      "dateCreation": "2025-11-10"
+    },
+    {
+      "id": "c3",
+      "utilisateurId": "u2",
+      "siteId": "2",
+      "contenu": "Très bien conservé!",
+      "dateCreation": "2025-10-20"
+    },
+    {
+      "id": "c4",
+      "utilisateurId": "u3",
+      "siteId": "3",
+      "contenu": "Une visite incontournable!",
+      "dateCreation": "2025-11-05"
+    },
+    {
+      "id": "c5",
+      "utilisateurId": "u2",
+      "siteId": "4",
+      "contenu": "Très intéressant, sous-sol unique!",
+      "dateCreation": "2025-11-12"
+    }
   ],
-
+  "favoris": [
+    {
+      "id": "f1",
+      "utilisateurId": "u1",
+      "siteId": "1"
+    },
+    {
+      "id": "f2",
+      "utilisateurId": "u1",
+      "siteId": "2"
+    },
+    {
+      "id": "f3",
+      "utilisateurId": "u2",
+      "siteId": "1"
+    },
+    {
+      "id": "f4",
+      "utilisateurId": "u2",
+      "siteId": "4"
+    },
+    {
+      "id": "f5",
+      "utilisateurId": "u3",
+      "siteId": "3"
+    },
+    {
+      "id": "1"
+    }
+  ],
   "reservations": [
     {
       "id": "r1",

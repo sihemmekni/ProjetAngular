@@ -2,7 +2,7 @@ export interface Reservation {
   id: string;
   utilisateurId: string; 
   siteId: string;        
-  dateVisite: Date;      
+  dateVisite: string;      
   nombreBillets: number; 
 }
 

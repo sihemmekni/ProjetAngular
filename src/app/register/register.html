@@ -1,0 +1,5 @@
+<h2>Créer un compte</h2>
+<input #nom type="text" placeholder="Nom">
+<input #email type="text" placeholder="Email">
+<input #pass type="password" placeholder="Mot de passe">
+<button (click)="register(nom.value, email.value, pass.value)">S'inscrire</button>

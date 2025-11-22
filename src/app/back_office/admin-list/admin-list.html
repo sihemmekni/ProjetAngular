@@ -1,1 +1,30 @@
-<p>admin-list works!</p>
+<div class="container mt-4">
+  <h2>Gestion des Patrimoines</h2>
+
+  <button class="btn btn-primary mb-3" (click)="add()">+ Ajouter un patrimoine</button>
+
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Nom</th>
+        <th>Localisation</th>
+        <th>Image</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      @for (p of patrimoines;track $index) {
+        <tr>
+          <td>{{ p.nom }}</td>
+          <td>{{ p.localisation }}</td>
+          <td><img [src]="p.imageUrl" width="80" class="rounded"></td>
+          <td>
+            <button class="btn btn-warning btn-sm me-2" (click)="edit(p.id!)">Modifier</button>
+            <button class="btn btn-danger btn-sm" (click)="delete(p.id!)">Supprimer</button>
+          </td>
+        </tr>
+      }
+    </tbody>
+  </table>
+</div>

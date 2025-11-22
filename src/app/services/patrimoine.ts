@@ -2,6 +2,7 @@ import { inject, Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { SiteArcheologique } from '../models/site-archeologique';
+import { Commentaire } from '../models/commentaire';
 
 @Injectable({
   providedIn: 'root'
@@ -9,27 +10,43 @@ import { SiteArcheologique } from '../models/site-archeologique';
 export class PatrimoineService {
 
   apiURL = 'http://localhost:3000/sitesArcheologiques';
+  apiURLCommentaires = 'http://localhost:3000/commentaires';
+
 
 
    private readonly http:HttpClient = inject(HttpClient);
-
-  // Récupérer tous les sites
   getAll(): Observable<SiteArcheologique[]> {
     return this.http.get<SiteArcheologique[]>(this.apiURL);
   }
 
-  // Récupérer un site par ID
+
   getById(id: string): Observable<SiteArcheologique> {
     return this.http.get<SiteArcheologique>(`${this.apiURL}/${id}`);
   }
 
-  // Récupérer par catégorie (si tu ajoutes "category" dans ton JSON)
   getByCategory(cat: string): Observable<any> {
     return this.http.get(`${this.apiURL}?category=${cat}`);
   }
 
-  // Recherche par nom
   search(term: string): Observable<any> {
     return this.http.get(`${this.apiURL}?q=${term}`);
   }
+  add(p: SiteArcheologique): Observable<SiteArcheologique> {
+    return this.http.post<SiteArcheologique>(this.apiURL, p);
+  }
+  update(id: string, p: SiteArcheologique): Observable<SiteArcheologique> {
+    return this.http.put<SiteArcheologique>(`${this.apiURL}/${id}`, p);
+  }
+   delete(id: string): Observable<void> {
+    return this.http.delete<void>(`${this.apiURL}/${id}`);
+  }
+  getCommentairesBySiteId(siteId: string) {
+  return this.http.get<Commentaire[]>(`${this.apiURLCommentaires}?siteId=${siteId}`);
 }
+addComment(comment: Commentaire) {
+  return this.http.post(this.apiURLCommentaires, comment);
+}
+
+}
+
+

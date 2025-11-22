@@ -1,0 +1,56 @@
+<div class="container mt-4">
+  <h2 class="mb-4">Modifier un site archéologique</h2>
+
+  <form [formGroup]="editForm" (ngSubmit)="onSubmit()" class="row g-3">
+
+    <div class="col-md-6">
+      <label class="form-label">ID</label>
+      <input type="text" class="form-control" formControlName="id" [disabled]="true">
+
+    </div>
+
+    <div class="col-md-6">
+      <label class="form-label">Nom</label>
+      <input type="text" class="form-control" formControlName="nom">
+    </div>
+
+    <div class="col-12">
+      <label class="form-label">Localisation</label>
+      <input type="text" class="form-control" formControlName="localisation">
+    </div>
+
+    <div class="col-12">
+      <label class="form-label">Description</label>
+      <textarea class="form-control" rows="3" formControlName="description"></textarea>
+    </div>
+
+    <div class="col-md-6">
+      <label class="form-label">Date de découverte</label>
+      <input type="date" class="form-control" formControlName="dateDecouverte">
+    </div>
+
+    <div class="col-md-6 d-flex align-items-center">
+      <div class="form-check mt-4">
+        <input class="form-check-input" type="checkbox" formControlName="possedeMusee" id="possedeMusee">
+        <label class="form-check-label" for="possedeMusee">Possède musée</label>
+      </div>
+    </div>
+
+    <div class="col-md-6">
+      <label class="form-label">Prix d'entrée</label>
+      <input type="number" class="form-control" formControlName="prixEntree">
+    </div>
+
+    <div class="col-md-6">
+      <label class="form-label">Image URL</label>
+      <input type="text" class="form-control" formControlName="imageUrl">
+    </div>
+
+    <div class="col-12">
+      <button type="submit" class="btn btn-success">Modifier</button>
+      <button type="button" class="btn btn-secondary ms-2" (click)="goBack()">Annuler</button>
+
+    </div>
+
+  </form>
+</div>

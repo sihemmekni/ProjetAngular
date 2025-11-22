@@ -1,1 +1,27 @@
-<p>favoris-patrimoine works!</p>
+<div class="container mt-4">
+  <h2>Mes Favoris</h2>
+
+  <div class="row">
+    @for (p of favoris; track p.id) {
+      <div class="col-md-4 mb-3">
+        <div class="card shadow-sm">
+          <img [src]="p.imageUrl" class="card-img-top" alt="{{ p.nom }}">
+          <div class="card-body">
+            <h5 class="card-title">{{ p.nom }}</h5>
+            <p class="card-text">{{ p.localisation }}</p>
+            <button class="btn btn-danger btn-sm" (click)="remove(p.id)">
+              <i class="bi bi-heart-fill"></i> Retirer
+            </button>
+            <a [routerLink]="['/patrimoine', p.id]" class="btn btn-primary btn-sm ms-2">
+              Voir détail
+            </a>
+          </div>
+        </div>
+      </div>
+    } @empty {
+      <div class="col-12 text-center mt-4">
+        <p class="text-muted">Aucun favori pour le moment </p>
+      </div>
+    }
+  </div>
+</div>
