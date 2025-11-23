@@ -35,7 +35,7 @@
       "nom": "Bulla Regia",
       "localisation": "Jendouba, Tunisie",
       "description": "Site romain célèbre pour ses maisons souterraines bien conservées.",
-      "dateDecouverte": "0200-01-01",
+      "dateDecouverte": "0200-01-01T00:00:00.000Z",
       "possedeMusee": false,
       "prixEntree": 4,
       "imageUrl": "img4.jpg"
