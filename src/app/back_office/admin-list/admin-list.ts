@@ -36,7 +36,7 @@ constructor(
       this.service.delete(id).subscribe(() => this.loadPatrimoines());
     }
   }
-openComments(patrimoineId: number) {
+openComments(patrimoineId: string) {
   this.router.navigate(['/admin/commentaires', patrimoineId]);
 }
 }
