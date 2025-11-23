@@ -22,4 +22,16 @@ export class ReservationService {
   deleteReservation(id: string): Observable<void> {
     return this.http.delete<void>(`${this.apiURL}/${id}`);
   }
+  getAll(): Observable<Reservation[]> {
+  return this.http.get<Reservation[]>(this.apiURL);
+}
+
+getById(id: string): Observable<Reservation> {
+  return this.http.get<Reservation>(`${this.apiURL}/${id}`);
+}
+
+updateReservation(id: string, r: Reservation): Observable<Reservation> {
+  return this.http.put<Reservation>(`${this.apiURL}/${id}`, r);
+}
+
 }

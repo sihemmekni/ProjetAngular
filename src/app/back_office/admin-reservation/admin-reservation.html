@@ -1,1 +1,37 @@
-<p>admin-reservation works!</p>
+<h2>Liste des Réservations</h2>
+
+<table class="table table-bordered table-striped">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Utilisateur</th>
+      <th>Site</th>
+      <th>Date Visite</th>
+      <th>Billets</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    @for(r of reservations;track $index) {
+      <tr>
+        <td>{{ r.id }}</td>
+        <td>{{ r.utilisateur }}</td>
+        <td>{{ r.site }}</td>
+        <td>{{ r.dateVisite }}</td>
+        <td>{{ r.nombreBillets }}</td>
+        <td>
+          <button class="btn btn-warning btn-sm" 
+                  [routerLink]="['/admin/reservation-edit', r.id]">
+            Modifier
+          </button>
+
+          <button class="btn btn-danger btn-sm" 
+                  (click)="deleteReservation(r.id)">
+            Supprimer
+          </button>
+        </td>
+      </tr>
+    }
+  </tbody>
+</table>

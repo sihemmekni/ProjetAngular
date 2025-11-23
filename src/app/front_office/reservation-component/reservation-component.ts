@@ -17,17 +17,14 @@ export class ReservationComponent implements OnInit {
   auth = inject(AuthService);
   router = inject(Router);
 
-  // Liste des réservations
-  reservations: Reservation[] = [];
+   reservations: Reservation[] = [];
 
   ngOnInit(): void {
-    // Vérifier si l'utilisateur est connecté
-    if (!this.auth.isLogged()) {
+     if (!this.auth.isLogged()) {
       this.router.navigate(['/login']);
       return;
     }
-
-    // Charger les réservations de l'utilisateur connecté
+ 
     this.loadReservations();
   }
 

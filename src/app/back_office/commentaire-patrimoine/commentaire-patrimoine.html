@@ -1,1 +1,37 @@
-<p>commentaire-patrimoine works!</p>
+<div class="container mt-4">
+
+  <h2>Commentaires du Patrimoine</h2>
+
+  
+  <button class="btn btn-secondary mb-3" routerLink="/admin/patrimoine">Retour aux patrimoines</button>
+
+
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        
+        <th>Commentaire</th>
+        <th>Date</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      @for(c of comments; track $index) {
+        <tr>
+          
+          <td>{{ c.contenu }}</td>
+          <td>{{ c.dateCreation | date:'short' }}</td>
+          <td>
+            <button class="btn btn-danger btn-sm" (click)="deleteComment(c.id)">Supprimer</button>
+          </td>
+        </tr>
+      }
+      @if(comments.length === 0) {
+        <tr>
+          <td colspan="4" class="text-center">Aucun commentaire pour ce patrimoine.</td>
+        </tr>
+      }
+    </tbody>
+  </table>
+
+</div>

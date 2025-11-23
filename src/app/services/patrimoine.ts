@@ -1,6 +1,6 @@
 import { inject, Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { map, Observable } from 'rxjs';
 import { SiteArcheologique } from '../models/site-archeologique';
 import { Commentaire } from '../models/commentaire';
 
@@ -28,9 +28,7 @@ export class PatrimoineService {
     return this.http.get(`${this.apiURL}?category=${cat}`);
   }
 
-  search(term: string): Observable<any> {
-    return this.http.get(`${this.apiURL}?q=${term}`);
-  }
+
   add(p: SiteArcheologique): Observable<SiteArcheologique> {
     return this.http.post<SiteArcheologique>(this.apiURL, p);
   }
@@ -45,6 +43,20 @@ export class PatrimoineService {
 }
 addComment(comment: Commentaire) {
   return this.http.post(this.apiURLCommentaires, comment);
+}
+search(term: string): Observable<SiteArcheologique[]> {
+  return this.http.get<SiteArcheologique[]>(`${this.apiURL}`).pipe(
+    map(sites =>
+      sites.filter(site =>
+        site.nom.toLowerCase().includes(term.toLowerCase()) ||
+        site.prixEntree.toString().includes(term)
+      )
+    )
+  );
+}
+
+deleteComment(commentId: string): Observable<void> {
+  return this.http.delete<void>(`${this.apiURLCommentaires}/${commentId}`);
 }
 
 }

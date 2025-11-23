@@ -1,0 +1,45 @@
+<h2>Liste des Utilisateurs</h2>
+
+<table class="table table-bordered table-striped">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Nom</th>
+      <th>Email</th>
+      <th>Rôle</th>
+      <th>Favoris</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    @if(utilisateurs.length === 0) {
+      <tr>
+        <td colspan="6">Aucun utilisateur</td>
+      </tr>
+    }
+
+    @for(u of utilisateurs;track $index) {
+      <tr>
+        <td>{{ u.id }}</td>
+        <td>{{ u.username }}</td>
+        <td>{{ u.email }}</td>
+        <td>{{ u.role }}</td>
+        <td>{{ u.favoris?.length || 0 }}</td>
+        <td>
+          <button class="btn btn-warning btn-sm" [routerLink]="['/admin/utilisateur-edit', u.id]">
+            Modifier
+          </button>
+          <button class="btn btn-danger btn-sm" (click)="deleteUser(u.id)">
+            Supprimer
+          </button>
+        </td>
+      </tr>
+    }
+  </tbody>
+</table>
+
+<button class="btn btn-primary mt-3" [routerLink]="['/admin/utilisateur-add']">
+  Ajouter Utilisateur
+</button>
+

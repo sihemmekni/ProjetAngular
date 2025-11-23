@@ -36,5 +36,7 @@ constructor(
       this.service.delete(id).subscribe(() => this.loadPatrimoines());
     }
   }
-
+openComments(patrimoineId: number) {
+  this.router.navigate(['/admin/commentaires', patrimoineId]);
+}
 }

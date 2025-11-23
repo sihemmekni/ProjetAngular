@@ -1,0 +1,14 @@
+<h2>Modifier Réservation</h2>
+
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+
+  <label>Date de visite :</label>
+  <input type="date" formControlName="dateVisite" class="form-control">
+
+  <label>Nombre de billets :</label>
+  <input type="number" formControlName="nombreBillets" class="form-control">
+
+  <button type="submit" class="btn btn-success mt-3" [disabled]="form.invalid">
+    Sauvegarder
+  </button>
+</form>

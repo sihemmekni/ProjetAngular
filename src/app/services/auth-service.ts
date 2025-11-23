@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
-import { map, Observable } from 'rxjs';
+import { map, Observable, switchMap } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -25,10 +25,27 @@ export class AuthService {
       );
   }
 
-  register(username: string, email: string, password: string): Observable<any> {
-    const newUser = { username, email, password, role: 'USER' };
-    return this.http.post(this.apiURLUsers, newUser);
-  }
+register(username: string, email: string, password: string): Observable<any> {
+   return this.http.get<any[]>(this.apiURLUsers).pipe(
+    map(users => {
+      const lastIdNum = users
+        .map(u => parseInt(u.id.replace('u', ''), 10))
+        .filter(n => !isNaN(n))
+        .sort((a, b) => b - a)[0] || 0;
+
+      const newUser = {
+        id: 'u' + (lastIdNum + 1),  
+        username,
+        email,
+        password,
+        role: 'USER'
+      };
+
+      return newUser;
+    }),
+    switchMap(newUser => this.http.post(this.apiURLUsers, newUser))  
+  );
+}
 
   logout() {
     this.currentUser = null;

@@ -1,4 +1,3 @@
-// patrimoine-list.ts
 import { Component, inject, OnInit } from '@angular/core';
 import { PatrimoineService } from '../../services/patrimoine';
 import { RouterLink } from '@angular/router';

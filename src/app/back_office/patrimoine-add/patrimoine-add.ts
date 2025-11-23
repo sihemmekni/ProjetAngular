@@ -34,7 +34,7 @@ addForm!: FormGroup;
   onSubmit() {
     if(this.addForm.valid) {
       this.service.add(this.addForm.value).subscribe(() => {
-        alert('Patrimoine ajouté !');
+        alert('Patrimoine ajouté !!!!!!');
         this.router.navigate(['/admin/patrimoine']); 
       });
     }

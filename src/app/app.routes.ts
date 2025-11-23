@@ -13,6 +13,12 @@ import { Login } from './login/login';
 import { Register } from './register/register';
 import { authGuard } from './guards/auth-guard';
 import { authAdminGuard } from './guards/auth-admin-guard';
+import { AdminReservationEdit } from './back_office/admin-reservation-edit/admin-reservation-edit';
+import { AdminReservation } from './back_office/admin-reservation/admin-reservation';
+import { AdminUtilisateur } from './back_office/admin-utilisateur/admin-utilisateur';
+import { AdminUtilisateurAdd } from './back_office/admin-utilisateur-add/admin-utilisateur-add';
+import { AdminUtilisateurEdit } from './back_office/admin-utilisateur-edit/admin-utilisateur-edit';
+import { CommentairePatrimoine } from './back_office/commentaire-patrimoine/commentaire-patrimoine';
 
 export const routes: Routes = [
      
@@ -25,11 +31,30 @@ export const routes: Routes = [
   { path: 'admin/patrimoine', component: AdminList, canActivate: [authAdminGuard] },
   { path: 'admin/patrimoine/add', component: PatrimoineAdd, canActivate: [authAdminGuard] },
   { path: 'admin/patrimoine/edit/:id', component: PatrimoineEdit, canActivate: [authAdminGuard] },
+  {
+  path: 'admin/commentaires/:id',
+  component: CommentairePatrimoine},
+
 
   
   { path: 'favoris', component: FavorisPatrimoine, canActivate: [authGuard] },
   { path: "reservation", component: ReservationComponent, canActivate: [authGuard] },
 
+{ 
+  path: 'admin/reservations', 
+  component: AdminReservation, 
+  canActivate: [authAdminGuard] 
+},
+
+
+{ 
+  path: 'admin/reservation-edit/:id', 
+  component: AdminReservationEdit, 
+  canActivate: [authAdminGuard] 
+},
+{ path: 'admin/utilisateur', component: AdminUtilisateur, canActivate: [authAdminGuard] },
+{ path: 'admin/utilisateur-add', component: AdminUtilisateurAdd, canActivate: [authAdminGuard] },
+{ path: 'admin/utilisateur-edit/:id', component: AdminUtilisateurEdit, canActivate: [authAdminGuard] },
   
   { path: 'login', component: Login },
   { path: 'register', component: Register },

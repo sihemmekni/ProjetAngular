@@ -1,3 +1,20 @@
+@if(weather) {
+  <div class="card shadow-sm weather-card p-2 text-center">
+    <h6 class="mb-1" style="font-size: 0.9rem;">Météo à {{ patrimoine?.localisation }}</h6>
+    <div class="d-flex align-items-center justify-content-center">
+      <img 
+        src="https://openweathermap.org/img/wn/{{ weather.weather[0].icon }}@2x.png" 
+        alt="{{ weather.weather[0].description }}" 
+        style="width: 40px; height: 40px; margin-right: 10px;"
+      >
+      <div style="font-size: 0.85rem;">
+        <p style="margin:0; font-weight: bold;">{{ weather?.main?.temp }}°C</p>
+        <p style="margin:0; text-transform: capitalize;">{{ weather.weather[0].description }}</p>
+      </div>
+    </div>
+  </div>
+}
+ 
 @for (p of patrimoine ? [patrimoine] : []; track $index) {
   @if (p) {
     <div class="container mt-5">
@@ -15,8 +32,7 @@
       </div>
     </div>
 
-    <!-- FAVORIS -->
-    <div class="text-center mb-3">
+     <div class="text-center mb-3">
       <i 
         class="bi"
         [class.bi-heart-fill]="isFavori"
@@ -27,20 +43,22 @@
       ></i>
     </div>
 
-    <!-- RÉSERVATION -->
-    <div class="card mt-4 p-3">
-      <h5>Réserver une visite</h5>
-      <form [formGroup]="reservationForm" (ngSubmit)="reserver()">
-        <label>Date de visite:</label>
-        <input type="date" class="form-control" formControlName="dateVisite">
-        <label class="mt-2">Nombre de billets:</label>
-        <input type="number" class="form-control" min="1" formControlName="nombreBillets">
-        <button type="submit" class="btn btn-success mt-3">Réserver</button>
-      </form>
-    </div>
+     
+     <h4 class="mt-4">Commentaires</h4>
+    @if(commentaires.length > 0) {
+      @for(c of commentaires; track c.id) {
+        <div class="card mb-2">
+          <div class="card-body">
+            <p><strong>{{ c.utilisateurId }}:</strong> {{ c.contenu }}</p>
+            <p><em>{{ c.dateCreation | date:'mediumDate' }}</em></p>
+          </div>
+        </div>
+      }
+    } @else {
+      <p>Aucun commentaire pour ce patrimoine.</p>
+    }
 
-    <!-- COMMENTAIRES -->
-    <h4>Ajouter un commentaire</h4>
+     <h4>Ajouter un commentaire</h4>
     <form [formGroup]="commentForm" (ngSubmit)="addComment()">
       <div class="mb-3">
         <label>Votre commentaire</label>
@@ -50,9 +68,19 @@
     </form>
   }
 }
-
+<div class="card mt-4 p-3">
+      <h5>Réserver une visite</h5>
+      <form [formGroup]="reservationForm" (ngSubmit)="reserver()">
+        <label>Date de visite:</label>
+        <input type="date" class="form-control" formControlName="dateVisite">
+        <label class="mt-2">Nombre de billets:</label>
+        <input type="number" class="form-control" min="1" formControlName="nombreBillets">
+        <button type="submit" class="btn btn-success mt-3">Réserver</button>
+      </form>
+    </div>
+ 
 @if (!patrimoine) {
   <div class="container mt-5">
-    <p>Chargement des informations...</p>
+    <p>Chargement des informations </p>
   </div>
 }

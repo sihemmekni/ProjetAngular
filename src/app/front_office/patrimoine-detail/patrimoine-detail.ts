@@ -8,6 +8,7 @@ import { Favourites } from '../../services/favourites';
 
 import { ReservationService } from '../../services/reservation-service';
 import { AuthService } from '../../services/auth-service';
+import { WeatherService } from '../../services/weather-service';
 
 @Component({
   selector: 'app-patrimoine-detail',
@@ -19,6 +20,7 @@ export class PatrimoineDetail implements OnInit {
  service = inject(PatrimoineService);
   auth = inject(AuthService);
   favService = inject(Favourites);
+   weatherService = inject(WeatherService);
   resService = inject(ReservationService);
   route = inject(ActivatedRoute);
   router = inject(Router);
@@ -28,7 +30,7 @@ export class PatrimoineDetail implements OnInit {
   commentaires: any[] = [];
   favoris: any[] = [];
   isFavori: boolean = false;
-
+weather: any;
   commentForm = this.fb.group({
     contenu: ['']
   });
@@ -42,15 +44,15 @@ export class PatrimoineDetail implements OnInit {
     const id = this.route.snapshot.paramMap.get('id');
     if (!id) return;
 
-    // Patrimoine
-    this.service.getById(id).subscribe({
+     this.service.getById(id).subscribe({
       next: (data: SiteArcheologique) => {
         this.patrimoine = data;
         this.loadFavoris();
+        this.loadWeather();
       }
     });
 
-    // Commentaires
+    
     this.service.getCommentairesBySiteId(id).subscribe({
       next: (data) => this.commentaires = data,
       error: err => console.error('Erreur récupération commentaires', err)
@@ -66,7 +68,13 @@ export class PatrimoineDetail implements OnInit {
       }
     });
   }
-
+ loadWeather() {
+    if (!this.patrimoine) return;
+    const city = this.patrimoine.localisation.split(',')[0]; 
+    this.weatherService.getWeatherByCity(city).subscribe({
+      next: (data) => this.weather = data 
+    });
+  }
   toggleFavori(): void {
     if (!this.auth.isLogged()) {
       this.router.navigate(['/login']);

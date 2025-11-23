@@ -62,19 +62,6 @@
       "email": "karim@example.com",
       "password": "qwerty",
       "role": "USER"
-    },
-    {
-      "id": "8ad7",
-      "username": "sihem",
-      "email": "sihemmekni73@gmail.com",
-      "password": "1234"
-    },
-    {
-      "id": "4982",
-      "username": "SIHEM",
-      "email": "sihemmekni73@gmail.com",
-      "password": "123",
-      "role": "USER"
     }
   ],
   "commentaires": [
@@ -142,6 +129,16 @@
     },
     {
       "id": "1"
+    },
+    {
+      "id": "a24c",
+      "siteId": "1",
+      "utilisateurId": null
+    },
+    {
+      "id": "6b34",
+      "siteId": "1",
+      "utilisateurId": null
     }
   ],
   "reservations": [
@@ -158,6 +155,13 @@
       "siteId": "2",
       "dateVisite": "2025-12-05",
       "nombreBillets": 2
+    },
+    {
+      "id": "1763814317352",
+      "utilisateurId": "u2",
+      "siteId": "1",
+      "dateVisite": "2025-11-06",
+      "nombreBillets": 1
     }
   ]
 }
